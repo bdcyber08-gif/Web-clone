@@ -7,26 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --accent: #00f2ff; --accent-2: #7000ff; --bg: #030712; --glass: rgba(15, 23, 42, 0.75); }
+        :root { --accent: #ff0000; --accent-2: #7b0000; --bg: #030712; --glass: rgba(15, 23, 42, 0.75); --cyan-accent: #00f2ff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; min-height: 100vh; }
-        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030712 100%); z-index: -2; }
+        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1e0000 0%, #030712 100%); z-index: -2; }
         header { padding: 50px 20px 10px; text-align: center; }
-        .main-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; background: linear-gradient(to right, #fff, var(--accent), var(--accent-2), #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 4s linear infinite; letter-spacing: 4px; text-transform: uppercase; }
-        .main-card { width: 92%; max-width: 850px; background: var(--glass); padding: 2px; border-radius: 25px; position: relative; overflow: hidden; margin: 25px auto; box-shadow: 0 0 40px rgba(0, 242, 255, 0.1); }
+        .main-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; background: linear-gradient(to right, #fff, var(--cyan-accent), var(--accent), #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 4s linear infinite; letter-spacing: 4px; text-transform: uppercase; }
+        .main-card { width: 92%; max-width: 850px; background: var(--glass); padding: 2px; border-radius: 25px; position: relative; overflow: hidden; margin: 25px auto; box-shadow: 0 0 40px rgba(255, 0, 0, 0.1); }
         .main-card::before { content: ''; position: absolute; width: 200%; height: 200%; background: conic-gradient(transparent, var(--accent), transparent, var(--accent-2), transparent); top: -50%; left: -50%; animation: rotate 5s linear infinite; }
         .card-inner { background: #0b1120; border-radius: 23px; padding: 35px; position: relative; z-index: 1; }
-        .input-wrapper { background: rgba(0,0,0,0.6); border: 2px solid rgba(0, 242, 255, 0.2); border-radius: 18px; display: flex; padding: 10px; flex-wrap: wrap; gap: 12px; }
+        .input-wrapper { background: rgba(0,0,0,0.6); border: 2px solid rgba(255, 0, 0, 0.2); border-radius: 18px; display: flex; padding: 10px; flex-wrap: wrap; gap: 12px; }
         input { flex: 1; min-width: 200px; background: transparent; border: none; color: white; padding: 12px; outline: none; font-size: 1rem; }
-        .btn-pro { background: linear-gradient(45deg, var(--accent), var(--accent-2)); color: #000 !important; border: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.9rem; }
+        .btn-pro { background: linear-gradient(45deg, var(--accent), var(--accent-2)); color: #fff !important; border: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 0.9rem; }
+        .dev-avatar-video { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 2px solid var(--accent); padding: 3px; background: #000; object-fit: cover; box-shadow: 0 0 20px var(--accent); }
         #loader { display: none; text-align: center; margin: 30px 0; }
         .spinner { width: 40px; height: 40px; border: 4px solid var(--accent); border-top: 4px solid transparent; border-radius: 50%; animation: rotate 1s linear infinite; display: inline-block; }
         #result-area { display: none; margin-top: 30px; }
         pre { background: #011627; padding: 20px; border-radius: 18px; max-height: 500px; overflow: auto; color: #9cdcfe; border: 1px solid rgba(255,255,255,0.1); white-space: pre-wrap; font-size: 0.85rem; }
-        .dev-card-medium { max-width: 500px; margin: 50px auto; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 30px; padding: 35px 20px; text-align: center; backdrop-filter: blur(15px); }
-        .dev-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 3px solid var(--accent); padding: 4px; object-fit: cover; }
-        .dev-name { font-family: 'Orbitron'; font-size: 1.5rem; color: #fff; }
-        .dev-link-btn { padding: 10px 20px; border-radius: 50px; font-weight: 700; text-decoration: none; border: 1.5px solid var(--accent); color: var(--accent); font-size: 0.8rem; }
+        .dev-card-medium { max-width: 500px; margin: 50px auto; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 30px; padding: 35px 20px; text-align: center; backdrop-filter: blur(15px); }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes shine { to { background-position: 200% center; } }
     </style>
@@ -37,28 +35,30 @@
 <div class="main-card">
     <div class="card-inner">
         <div class="input-wrapper">
+            <i class="fas fa-link" style="align-self: center; margin-left: 10px; color: var(--accent);"></i>
             <input type="url" id="targetUrl" placeholder="Enter target website link (https://...)" required>
             <button onclick="fetchSource()" class="btn-pro">EXTRACT <i class="fas fa-bolt"></i></button>
         </div>
-        <div id="loader"><div class="spinner"></div><p>EXTRACTING SOURCE...</p></div>
+        <div id="loader"><div class="spinner"></div><p style="margin-top:15px; color:var(--accent);">EXTRACTING SOURCE...</p></div>
         <div id="result-area">
-            <button class="btn-pro" style="margin-bottom:10px;" onclick="copyCode()">COPY CODE</button>
+            <button class="btn-pro" style="margin-bottom:10px;" id="copyBtn">COPY CODE</button>
             <pre id="output"></pre>
         </div>
     </div>
 </div>
 <div class="dev-card-medium">
-    <img src="https://i.ibb.co/9HLxSVMB/15156.jpg" class="dev-avatar">
-    <h2 class="dev-name">ASIF BOSS</h2>
-    <div style="margin-top:15px; display:flex; justify-content:center; gap:10px;">
-        <a href="https://t.me/banglaadmin01" class="dev-link-btn" style="background:var(--accent); color:#000;">Contact</a>
-        <a href="https://t.me/new_bangla_mod" class="dev-link-btn">Channel</a>
+    <video autoplay muted loop playsinline class="dev-avatar-video"><source src="VID_20260418_155410_159.mp4" type="video/mp4"></video>
+    <h2 style="font-family:'Orbitron'; color:#fff;">ASIF BOSS</h2>
+    <p style="color:var(--accent); font-size:0.8rem; letter-spacing:2px; margin-bottom:20px;">OWNER OF BD DARKNETX99</p>
+    <div style="display:flex; justify-content:center; gap:10px;">
+        <a href="https://t.me/banglaadmin01" target="_blank" style="padding:10px 20px; border-radius:50px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:0.8rem;">Contact</a>
+        <a href="https://t.me/new_bangla_mod" target="_blank" style="padding:10px 20px; border-radius:50px; border:1.5px solid var(--accent); color:var(--accent); text-decoration:none; font-weight:700; font-size:0.8rem;">Channel</a>
     </div>
 </div>
 <script>
     async function fetchSource() {
         const urlInput = document.getElementById('targetUrl').value;
-        if (!urlInput) { alert('Please enter a URL!'); return; }
+        if (!urlInput) { alert('URL দিন!'); return; }
         document.getElementById('loader').style.display = 'block';
         document.getElementById('result-area').style.display = 'none';
         try {
@@ -71,13 +71,12 @@
             document.getElementById('output').innerText = data;
             document.getElementById('loader').style.display = 'none';
             document.getElementById('result-area').style.display = 'block';
-        } catch (e) { alert('Error fetching data!'); document.getElementById('loader').style.display = 'none'; }
+        } catch (e) { alert('Error!'); document.getElementById('loader').style.display = 'none'; }
     }
-    function copyCode() {
-        const text = document.getElementById('output').innerText;
-        navigator.clipboard.writeText(text);
-        alert('Copied to clipboard!');
-    }
+    document.getElementById('copyBtn').addEventListener('click', function() {
+        navigator.clipboard.writeText(document.getElementById('output').innerText);
+        alert('Copied!');
+    });
 </script>
 </body>
 </html>
