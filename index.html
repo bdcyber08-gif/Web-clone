@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --accent: #00ff41; /* হ্যাকার গ্রিন */
+            --accent: #00ff41; 
             --accent-2: #008f11;
+            --tg-color: #229ED9;
             --bg: #000000;
             --glass: rgba(15, 23, 42, 0.85);
         }
@@ -17,7 +18,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; min-height: 100vh; }
         
-        /* নতুন ম্যাট্রিক্স গ্রিন ডাইনামিক ব্যাকগ্রাউন্ড */
+        /* ম্যাট্রিক্স গ্রিন ডাইনামিক ব্যাকগ্রাউন্ড */
         .bg-animate { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: linear-gradient(-45deg, #000000, #062206, #004411, #000000); 
@@ -47,14 +48,19 @@
         .dev-name { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--accent); }
         .dev-title { color: var(--accent); font-weight: 800; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 5px; }
 
-        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 35px; }
-        .social-btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.9rem; transition: 0.3s; border: 2px solid; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 35px; flex-wrap: wrap; }
+        .social-btn { padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.95rem; transition: 0.3s; display: flex; align-items: center; gap: 10px; border: 2px solid; }
+        
         .btn-contact { background: var(--accent); color: #000 !important; border-color: var(--accent); }
-        .btn-channel { color: var(--accent) !important; border-color: var(--accent); background: rgba(0, 255, 65, 0.05); }
+        .btn-contact:hover { background: transparent; color: var(--accent) !important; }
+
+        /* টেলিগ্রাম লোগো বাটন */
+        .btn-channel { background: transparent; color: var(--tg-color) !important; border-color: var(--tg-color); }
+        .btn-channel:hover { background: var(--tg-color); color: #fff !important; box-shadow: 0 0 20px var(--tg-color); }
         
         #loader { display: none; margin-top: 20px; text-align: center; }
         .spinner { width: 45px; height: 45px; border: 5px solid var(--accent); border-top-color: transparent; border-radius: 50%; animation: rotateRing 1s linear infinite; display: inline-block; }
-        pre { background: #011627; padding: 25px; border-radius: 20px; color: var(--accent); border: 1px solid rgba(0,255,65,0.2); max-height: 500px; overflow: auto; text-align: left; margin-top: 25px; white-space: pre-wrap; font-family: 'Consolas', monospace; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+        pre { background: #011627; padding: 25px; border-radius: 20px; color: var(--accent); border: 1px solid rgba(0,255,65,0.2); max-height: 500px; overflow: auto; text-align: left; margin-top: 25px; white-space: pre-wrap; font-family: 'Consolas', monospace; }
 
         @keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
@@ -92,8 +98,12 @@
         <p class="dev-title">OWNER OF BD DARKNETX99</p>
 
         <div class="btn-group">
-            <a href="https://t.me/banglaadmin01" target="_blank" class="social-btn btn-contact">Contact Me</a>
-            <a href="https://t.me/new_bangla_mod" target="_blank" class="social-btn btn-channel">Join Channel</a>
+            <a href="https://t.me/banglaadmin01" target="_blank" class="social-btn btn-contact">
+                <i class="fas fa-user-shield"></i> Contact Me
+            </a>
+            <a href="https://t.me/new_bangla_mod" target="_blank" class="social-btn btn-channel">
+                <i class="fab fa-telegram-plane"></i> Join Channel
+            </a>
         </div>
     </div>
 </div>
