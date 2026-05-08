@@ -7,31 +7,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --accent: #ff0000; --accent-2: #7b0000; --bg: #030712; --glass: rgba(15, 23, 42, 0.75); --cyan-accent: #00f2ff; }
+        :root { --accent: #00ff00; --accent-2: #004400; --bg: #030712; --glass: rgba(15, 23, 42, 0.75); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; min-height: 100vh; }
-        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1e0000 0%, #030712 100%); z-index: -2; }
-        header { padding: 50px 20px 10px; text-align: center; }
-        .main-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; background: linear-gradient(to right, #fff, var(--cyan-accent), var(--accent), #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 4s linear infinite; letter-spacing: 4px; text-transform: uppercase; }
-        .main-card { width: 92%; max-width: 850px; background: var(--glass); padding: 2px; border-radius: 25px; position: relative; overflow: hidden; margin: 25px auto; box-shadow: 0 0 40px rgba(255, 0, 0, 0.1); }
+        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #001a00 0%, #030712 100%); z-index: -2; }
+        
+        header { padding: 30px 20px 10px; text-align: center; }
+        .main-logo { width: 100%; max-width: 450px; margin: 0 auto; display: block; filter: drop-shadow(0 0 15px var(--accent)); }
+
+        .main-card { width: 92%; max-width: 850px; background: var(--glass); padding: 2px; border-radius: 25px; position: relative; overflow: hidden; margin: 25px auto; box-shadow: 0 0 40px rgba(0, 255, 0, 0.1); }
         .main-card::before { content: ''; position: absolute; width: 200%; height: 200%; background: conic-gradient(transparent, var(--accent), transparent, var(--accent-2), transparent); top: -50%; left: -50%; animation: rotate 5s linear infinite; }
         .card-inner { background: #0b1120; border-radius: 23px; padding: 35px; position: relative; z-index: 1; }
-        .input-wrapper { background: rgba(0,0,0,0.6); border: 2px solid rgba(255, 0, 0, 0.2); border-radius: 18px; display: flex; padding: 10px; flex-wrap: wrap; gap: 12px; }
+
+        .input-wrapper { background: rgba(0,0,0,0.6); border: 2px solid rgba(0, 255, 0, 0.2); border-radius: 18px; display: flex; padding: 10px; flex-wrap: wrap; gap: 12px; }
         input { flex: 1; min-width: 200px; background: transparent; border: none; color: white; padding: 12px; outline: none; font-size: 1rem; }
-        .btn-pro { background: linear-gradient(45deg, var(--accent), var(--accent-2)); color: #fff !important; border: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 0.9rem; }
-        .dev-avatar-video { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 2px solid var(--accent); padding: 3px; background: #000; object-fit: cover; box-shadow: 0 0 20px var(--accent); }
+        .btn-pro { background: linear-gradient(45deg, var(--accent), var(--accent-2)); color: #000 !important; border: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 0.9rem; }
+        
         #loader { display: none; text-align: center; margin: 30px 0; }
         .spinner { width: 40px; height: 40px; border: 4px solid var(--accent); border-top: 4px solid transparent; border-radius: 50%; animation: rotate 1s linear infinite; display: inline-block; }
         #result-area { display: none; margin-top: 30px; }
-        pre { background: #011627; padding: 20px; border-radius: 18px; max-height: 500px; overflow: auto; color: #9cdcfe; border: 1px solid rgba(255,255,255,0.1); white-space: pre-wrap; font-size: 0.85rem; }
-        .dev-card-medium { max-width: 500px; margin: 50px auto; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 30px; padding: 35px 20px; text-align: center; backdrop-filter: blur(15px); }
+        pre { background: #011627; padding: 20px; border-radius: 18px; max-height: 500px; overflow: auto; color: #00ff00; border: 1px solid rgba(0,255,0,0.1); white-space: pre-wrap; font-size: 0.85rem; }
+
+        .dev-card-medium { max-width: 500px; margin: 50px auto; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 30px; padding: 35px 20px; text-align: center; backdrop-filter: blur(15px); }
+        .dev-avatar-video { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 2px solid var(--accent); padding: 3px; background: #000; object-fit: cover; box-shadow: 0 0 20px var(--accent); }
+        
+        .dev-link-btn { padding: 12px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; border: 1.5px solid var(--accent); color: var(--accent); font-size: 0.85rem; transition: 0.3s; }
+        .btn-contact { background: var(--accent); color: #000 !important; }
+
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes shine { to { background-position: 200% center; } }
     </style>
 </head>
 <body>
 <div class="bg-animate"></div>
-<header><h1 class="main-title">BD DarkNetX99 Web Cloner</h1></header>
+
+<header>
+    <img src="https://i.ibb.co/Vp8L38Xm/12450.png" alt="BD DarkNetX99 Logo" class="main-logo">
+</header>
+
 <div class="main-card">
     <div class="card-inner">
         <div class="input-wrapper">
@@ -46,15 +58,23 @@
         </div>
     </div>
 </div>
+
 <div class="dev-card-medium">
-    <video autoplay muted loop playsinline class="dev-avatar-video"><source src="VID_20260418_155410_159.mp4" type="video/mp4"></video>
-    <h2 style="font-family:'Orbitron'; color:#fff;">ASIF BOSS</h2>
-    <p style="color:var(--accent); font-size:0.8rem; letter-spacing:2px; margin-bottom:20px;">OWNER OF BD DARKNETX99</p>
-    <div style="display:flex; justify-content:center; gap:10px;">
-        <a href="https://t.me/banglaadmin01" target="_blank" style="padding:10px 20px; border-radius:50px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:0.8rem;">Contact</a>
-        <a href="https://t.me/new_bangla_mod" target="_blank" style="padding:10px 20px; border-radius:50px; border:1.5px solid var(--accent); color:var(--accent); text-decoration:none; font-weight:700; font-size:0.8rem;">Channel</a>
+    <video autoplay muted loop playsinline class="dev-avatar-video">
+        <source src="VID_20260418_155410_159.mp4" type="video/mp4">
+    </video>
+    <h2 style="font-family:'Orbitron'; color:#fff; font-size: 1.5rem;">ASIF BOSS</h2>
+    <p style="color:var(--accent); font-size:0.75rem; letter-spacing:2px; margin-bottom:25px; font-weight: bold;">OWNER OF BD DARKNETX99</p>
+    <div style="display:flex; justify-content:center; gap:12px;">
+        <a href="https://t.me/banglaadmin01" target="_blank" class="dev-link-btn btn-contact">Contact Me</a>
+        <a href="https://t.me/new_bangla_mod" target="_blank" class="dev-link-btn">Join Channel</a>
     </div>
 </div>
+
+<footer>
+    <p style="text-align:center; font-family:'Orbitron'; color:var(--accent); font-size:0.8rem; padding: 40px; letter-spacing: 2px;">DESIGNED BY BD DARKNETX99 &copy; 2026</p>
+</footer>
+
 <script>
     async function fetchSource() {
         const urlInput = document.getElementById('targetUrl').value;
